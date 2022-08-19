@@ -1,0 +1,5 @@
+/* register user roles */
+.user-roles option {
+  border-radius: 6px !important;
+  background-color: #564e5d;
+}
