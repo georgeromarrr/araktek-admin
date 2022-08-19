@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import blacklogo from "../../assets/img/logo-black.png";
 import whitelogo from "../../assets/img/logo-white.png";
 import { ArrowIcon } from "../../assets/Icons/Icons";
+import DarkMode from "../DarkMode/DarkMode";
 
 // brand logo
 export const BlackLogo = () => {
