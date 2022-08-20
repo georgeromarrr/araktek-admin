@@ -38,7 +38,11 @@ const Login = () => {
                 required
               />
               <div className="flex absolute inset-y-0 right-0 items-center pr-2">
-                <button onClick={() => setShowPass(!showPass)} type="button">
+                <button
+                  onMouseDown={() => setShowPass(!showPass)}
+                  onMouseUp={() => setShowPass(!showPass)}
+                  type="button"
+                >
                   {showPass ? <EyeOffIcon /> : <EyeIcon />}
                 </button>
               </div>

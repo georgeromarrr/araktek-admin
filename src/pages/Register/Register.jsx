@@ -70,7 +70,11 @@ const Register = () => {
                 required
               />
               <div className="flex absolute inset-y-0 right-0 items-center pr-2">
-                <button onClick={() => setShowPass(!showPass)} type="button">
+                <button
+                  onMouseDown={() => setShowPass(!showPass)}
+                  onMouseUp={() => setShowPass(!showPass)}
+                  type="button"
+                >
                   {showPass ? <EyeOffIcon /> : <EyeIcon />}
                 </button>
               </div>
@@ -86,7 +90,8 @@ const Register = () => {
               />
               <div className="flex absolute inset-y-0 right-0 items-center pr-2">
                 <button
-                  onClick={() => setShowConfirmPassPass(!showConfirmPass)}
+                  onMouseDown={() => setShowConfirmPassPass(!showConfirmPass)}
+                  onMouseUp={() => setShowConfirmPassPass(!showConfirmPass)}
                   type="button"
                 >
                   {showConfirmPass ? <EyeOffIcon /> : <EyeIcon />}
