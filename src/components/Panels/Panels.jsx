@@ -9,9 +9,9 @@ import {
 
 const Panels = () => {
   return (
-    <div className="grid grid-cols-3 gap-8 dark:text-white ">
-      <div className="p-8 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
-        <div className="flex justify-between m-1">
+    <div className="grid grid-cols-4 gap-6 dark:text-white ">
+      <div className="p-4 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white ">
+        <div className="flex justify-between m-2">
           <div className="space-y-3">
             <div className="flex items-center">
               <h1 className="text-2xl text-start font-semibold">Users</h1>
@@ -30,8 +30,8 @@ const Panels = () => {
           </span>
         </div>
       </div>
-      <div className="p-8 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
-        <div className="flex justify-between m-1 gap-4">
+      <div className="p-4 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
+        <div className="flex justify-between m-2 gap-4">
           <div className="space-y-3">
             <div className="flex items-center">
               <h1 className="text-2xl text-start font-semibold">Sales</h1>
@@ -43,18 +43,40 @@ const Panels = () => {
                 </span>
               </div>
             </div>
-            <p className="text-4xl text-start">₱ 40,000</p>
+            <p className="text-4xl text-start">₱ 10,000,000</p>
           </div>
           <span className="flex items-end">
             <SalesIcon className="h-16 w-16" />
           </span>
         </div>
       </div>
-      <div className="p-8 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
-        <div className="flex justify-between m-1">
+      <div className="p-4 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
+        <div className="flex justify-between m-2">
           <div className="space-y-3">
             <div className="flex items-center">
               <h1 className="text-2xl text-start font-semibold">Orders</h1>
+
+              {/* <div className="flex items-center mx-2">
+                <p className="text-xl self-center mx-1">12%</p>
+                <span>
+                  <UpIcon />
+                </span>
+              </div> */}
+            </div>
+            <p className="text-4xl text-start">5</p>
+          </div>
+          <span className="flex items-end">
+            <OrderIcon className="h-16 w-16" />
+          </span>
+        </div>
+      </div>
+      <div className="p-4 bg-inherit rounded-md shadow-lg text-center border border-black h-full dark:border-white">
+        <div className="flex justify-between m-2">
+          <div className="space-y-3">
+            <div className="flex items-center">
+              <h1 className="text-2xl text-start font-semibold">
+                Pending Reviews
+              </h1>
 
               {/* <div className="flex items-center mx-2">
                 <p className="text-xl self-center mx-1">12%</p>

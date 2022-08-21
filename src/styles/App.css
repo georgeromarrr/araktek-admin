@@ -3,3 +3,12 @@
   border-radius: 6px !important;
   background-color: #564e5d;
 }
+
+/* material ui Icon  darkmode*/
+.dark .MuiRating-iconFilled {
+  color: #ffffff;
+}
+
+.dark .MuiRating-iconEmpty {
+  color: #96a396 !important;
+}

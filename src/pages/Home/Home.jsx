@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Panels from "../../components/Panels/Panels";
+import Home_Table from "../../components/Table/Home/Home_Table";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar />
       <Sidebar>
         <Panels />
+        <Home_Table />
       </Sidebar>
     </div>
   );
