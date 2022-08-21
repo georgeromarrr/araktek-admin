@@ -4,7 +4,7 @@ import Rating from "@mui/material/Rating";
 export const SectionTitle = () => {
   return (
     <div className="flex justify-start mt-12 mb-8">
-      <p className="text-2xl font-bold dark:text-white">Pending Reviews</p>
+      <p className="text-2xl font-bold dark:text-white">Reviews</p>
     </div>
   );
 };

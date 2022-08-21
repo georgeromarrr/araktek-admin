@@ -37,7 +37,7 @@ const TableData = [
     reviewer: 'Action Figures',
     comments: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel fringilla est ullamcorper. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi.',
     rating: 0,
-    status: 'Pending'
+    status: 'Active'
   },
   {
     id: 'R_0006',
@@ -93,7 +93,7 @@ const TableData = [
     reviewer: 'Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1 Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1',
     comments: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel fringilla est ullamcorper. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi.',
     rating: 3,
-    status: 'Pending'
+    status: 'Active'
   },
   {
     id: 'R_0013',
@@ -101,7 +101,7 @@ const TableData = [
     reviewer: 'Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1 Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1',
     comments: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel fringilla est ullamcorper. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi.',
     rating: 3,
-    status: 'Pending'
+    status: 'Active'
   },
   {
     id: 'R_0014',
@@ -109,7 +109,7 @@ const TableData = [
     reviewer: 'Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1 Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1',
     comments: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel fringilla est ullamcorper. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi.',
     rating: 3,
-    status: 'Pending'
+    status: 'Active'
   },
   {
     id: 'R_0015',
@@ -117,7 +117,7 @@ const TableData = [
     reviewer: 'Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1 Nintendo Amiibo Monster Hunter Rise Sunbreak Meruzena (Malzeno) 1',
     comments: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum facilisis leo vel fringilla est ullamcorper. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi.',
     rating: 3,
-    status: 'Pending'
+    status: 'Active'
   },
   {
     id: 'R_0016',

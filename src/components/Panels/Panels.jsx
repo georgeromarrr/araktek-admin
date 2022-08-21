@@ -74,9 +74,7 @@ const Panels = () => {
         <div className="flex justify-between m-2">
           <div className="space-y-3">
             <div className="flex items-center">
-              <h1 className="text-2xl text-start font-semibold">
-                Pending Reviews
-              </h1>
+              <h1 className="text-2xl text-start font-semibold">Reviews</h1>
 
               {/* <div className="flex items-center mx-2">
                 <p className="text-xl self-center mx-1">12%</p>

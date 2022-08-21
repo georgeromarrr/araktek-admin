@@ -8,6 +8,8 @@ const Home_Table = () => {
   const [lastIndex, setLastIndex] = useState(5);
   const [page, setPage] = useState(1);
   const [filterTable, setfilterTable] = useState("Pending");
+  const [nextBtnEnable, setNextBtnEnable] = useState(false);
+  const [prevBtnEnable, setPrevBtnEnable] = useState(true);
 
   const handleSelectValue = (e) => {
     setPerPage(parseInt(e.target.value));
@@ -24,6 +26,8 @@ const Home_Table = () => {
     setInitIndex(0);
     setLastIndex(perPage);
     setPage(1);
+    setNextBtnEnable(false);
+    setPrevBtnEnable(true);
   }, [filterTable]);
 
   useEffect(() => {
@@ -32,6 +36,8 @@ const Home_Table = () => {
     setInitIndex(0);
     setLastIndex(perPage);
     setPage(1);
+    setNextBtnEnable(false);
+    setPrevBtnEnable(true);
   }, [perPage]);
 
   const handleSetFilter = (rootData) => {
@@ -50,6 +56,8 @@ const Home_Table = () => {
     }
   };
 
+  const initPage = Math.ceil(handleDataLength(TableData) / perPage);
+
   const handleNext = () => {
     let currentPage = page;
     let lastValue = lastIndex;
@@ -60,8 +68,11 @@ const Home_Table = () => {
       setInitIndex(lastIndex);
       setLastIndex(lastValue);
       setPage(currentPage);
-    } else {
-      console.log("Page max reached ");
+      setPrevBtnEnable(false);
+    }
+
+    if (initPage === currentPage) {
+      setNextBtnEnable(true);
     }
   };
 
@@ -78,9 +89,12 @@ const Home_Table = () => {
         setInitIndex(initValue);
         setLastIndex(lastValue);
         setPage(currentPage);
+        setNextBtnEnable(false);
       }
-    } else {
-      console.log("Page max reached ");
+    }
+
+    if (currentPage === 1) {
+      setPrevBtnEnable(true);
     }
   };
 
@@ -183,18 +197,17 @@ const Home_Table = () => {
 
       <div className="flex justify-between my-4 mx-2">
         <p className="text-sm italic">
-          Showing <span className="font-semibold">{initIndex + 1}</span>
-          <span className="mx-1">to</span>
-          <span className="font-semibold">{lastIndex}</span>
-          <span className="mx-1">of</span>
-          <span className="font-semibold">
-            {handleDataLength(TableData)}
-          </span>{" "}
-          results
+          <span>Showing</span>
+          <span className="mx-1">page</span>
+          <span className="font-semibold">{page}</span>
+          <span className="mx-1">out of</span>
+          <span className="font-semibold">{initPage}</span>
+          <span className="mx-1">pages</span>
         </p>
         <div className="flex gap-3 items-center relative">
           <button
             onClick={handlePrev}
+            disabled={prevBtnEnable}
             type="button"
             className="border border-black text-black py-2 px-4 rounded-md hover:bg-gray-200 hover:text-black z-50 text-xs font-bold disabled:opacity-25 dark:text-white dark:border-white dark:hover:text-black"
           >
@@ -202,6 +215,7 @@ const Home_Table = () => {
           </button>
           <button
             onClick={handleNext}
+            disabled={nextBtnEnable}
             type="button"
             className="border border-black text-black py-2 px-4 rounded-md hover:bg-gray-200 hover:text-black z-50 text-xs font-bold disabled:opacity-25 dark:text-white dark:border-white dark:hover:text-black"
           >
