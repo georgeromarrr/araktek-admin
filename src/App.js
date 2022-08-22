@@ -8,6 +8,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Category from './pages/Category/Category';
 import EditCategory from './pages/Category/EditCategory'
+import ViewCategory from './pages/Category/ViewCategory'
 import AddProduct from './pages/Product/Product'
 // API
 axios.defaults.baseURL ="http://127.0.0.1:8000/";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path='/category' element={<Category/>}/>
         <Route path='/editcategory/:id' element={<EditCategory />} />
+        <Route path='/viewcategory' element={<ViewCategory/>}/>
 
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path="/login" element={<Login />}/>

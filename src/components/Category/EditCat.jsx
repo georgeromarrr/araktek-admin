@@ -66,7 +66,7 @@ useEffect(() => {
         }
         else if (res.data.status === 404) {
             swal("Error", res.data.message, "error");
-            navigate('/admin/view-category');
+            navigate('/viewcategory');
         }
         setLoading(false);
     })
@@ -85,7 +85,7 @@ const updateCategory = (e) => {
         if (res.data.status === 200) {
 
             swal("Success", res.data.message, "success");
-            navigate('/admin/view-category');
+            navigate('/viewcategory');
             setError([]);
         }
         else if(res.data.status === 422) {
@@ -95,7 +95,7 @@ const updateCategory = (e) => {
         }
         else if(res.data.status === 404) {
             swal("Error", res.data.message, "error");
-            navigate('/admin/view-category');
+            navigate('/viewcategory');
         }
     })
 }

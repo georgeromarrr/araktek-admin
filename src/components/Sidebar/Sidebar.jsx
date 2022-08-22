@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import {
   HomeIcon,
   CategoryIcon,
@@ -30,11 +31,12 @@ const Sidebar = ({ children }) => {
               <HomeIcon />
               <span className="text-lg">HOME</span>
             </li>
-
+            <Link to='/category'>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <CategoryIcon />
               <span className="text-lg">CATEGORY</span>
             </li>
+            </Link>
 
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <PhotoIcon />
