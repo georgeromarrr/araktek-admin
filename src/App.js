@@ -12,6 +12,7 @@ import ViewCategory from './pages/Category/ViewCategory'
 import AddProduct from './pages/Product/Product';
 import EditProduct from './pages/Product/EditProduct';
 import ViewProduct from './pages/Product/ViewProduct';
+import ViewInventory from './pages/Inventory/ViewInventory';
 
 // API
 axios.defaults.baseURL ="http://127.0.0.1:8000/";
@@ -44,6 +45,7 @@ function App() {
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/editproduct/:id' element={<EditProduct />} />
         <Route path='/viewproduct' element={<ViewProduct/>}/>
+        <Route path='/viewinventory' element={<ViewInventory/>}/>
         <Route path="/register" element={<Register />}/>
       </Routes>
     </div>

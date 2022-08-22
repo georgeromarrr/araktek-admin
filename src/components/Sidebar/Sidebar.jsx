@@ -60,10 +60,12 @@ const Sidebar = ({ children }) => {
               <OrderIcon className="h-6 w-6" />
               <span className="text-lg">ORDER</span>
             </li>
+            <Link to='/viewinventory'>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <InventoryIcon />
               <span className="text-lg">INVENTORY</span>
             </li>
+            </Link>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <SalesIcon className="h-6 w-6" />
               <span className="text-lg">SALES</span>

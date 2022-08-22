@@ -36,13 +36,8 @@ const Login = () => {
   axios.get('/sanctum/csrf-cookie').then(response => {
     axios.post(`api/login`, data).then(res =>{
       if(res.data.status === 200){
-<<<<<<< HEAD
         localStorage.setItem('auth_admin', res.data.token);
         localStorage.setItem('auth_admin_name', res.data.username)
-=======
-        localStorage.setItem('auth_token', res.data.token);
-        localStorage.setItem('auth_name', res.data.username)
->>>>>>> 95c6daa8a965e9ce677427a127b389d0f611fa07
       //   swal("Success", res.data.message, "success")
         navigate("/", { replace: true });
 
@@ -66,7 +61,7 @@ const Login = () => {
         <div className="p-4 w-[46vh] mx-auto">
           <LoginHeader />
           <form onSubmit={loginSubmit} className="flex flex-col gap-4 pb-4">
-          <span className='text-center text-sm text-red-500'>{login.error_wrong}</span>
+
             <div className="py-3">
               <input
                 onChange={handleInput} value={login.email}
