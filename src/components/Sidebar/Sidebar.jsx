@@ -50,10 +50,12 @@ const Sidebar = ({ children }) => {
               <BrandIcon />
               <span className="text-lg">BRAND</span>
             </li>
+            <Link to='/addproduct'>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <ProductIcon />
               <span className="text-lg">PRODUCT</span>
             </li>
+            </Link>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <OrderIcon className="h-6 w-6" />
               <span className="text-lg">ORDER</span>

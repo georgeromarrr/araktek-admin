@@ -9,7 +9,10 @@ import Register from './pages/Register/Register';
 import Category from './pages/Category/Category';
 import EditCategory from './pages/Category/EditCategory'
 import ViewCategory from './pages/Category/ViewCategory'
-import AddProduct from './pages/Product/Product'
+import AddProduct from './pages/Product/Product';
+import EditProduct from './pages/Product/EditProduct';
+import ViewProduct from './pages/Product/ViewProduct';
+
 // API
 axios.defaults.baseURL ="http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type']='application/json';
@@ -34,6 +37,8 @@ function App() {
         <Route path='/viewcategory' element={<ViewCategory/>}/>
 
         <Route path='/addproduct' element={<AddProduct/>}/>
+        <Route path='/editproduct' element={<EditProduct/>}/>
+        <Route path='/viewproduct' element={<ViewProduct/>}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
       </Routes>

@@ -162,7 +162,7 @@ const submitProduct = (e) => {
     <Box sx={{ width: '100%' }}>
       <div className="my-2 flex justify-between">
         <p className="text-3xl font-bold uppercase mb-10 dark:text-white">
-          Add New Product
+          Add Product
         </p>
         <Link to='/viewproducts'> 
         <button
@@ -183,16 +183,237 @@ const submitProduct = (e) => {
       </Box>
       <form onSubmit={submitProduct} encType='multipart/form-data'>
       <TabPanel value={value} index={0}>
-        
+      <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Select Category
+            </label>
+            <select
+              onChange={handleInput}
+              value={productInput.category_id}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="category_id"
+              type="text"
+              required
+            >
+               {
+                categorylist.map((item)=> {
+                  return(
+                    <option value={item.id} key={item.id}>{item.name}</option>
+                  )
+                  })
+                  }
+            </select>
+        </div>
+
+      <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Slug
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.slug}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="slug"
+              type="text"
+              required
+            />
+        </div>
+
+        <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="name"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Product Name
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.name}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="name"
+              type="text"
+              required
+            />
+        </div>
+
+        <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="description"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Description
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.description}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow h-12"
+              name="description"
+              type="text"
+              required
+            />
+        </div>
 
          
       </TabPanel>
       <TabPanel value={value} index={1}>
-      
+      <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Meta Title
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.meta_title}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="meta_title"
+              type="text"
+              required
+            />
+        </div>
+        <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Meta Keyword
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.meta_keyword}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="meta_keyword"
+              type="text"
+              required
+            />
+        </div>
+        <div className="py-3 flex justify-start flex-col gap-1 w-7/12">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-3/12 text-start"
+            >
+              Meta Description
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.meta_description}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow h-12"
+              name="meta_description"
+              type="text"
+              required
+            />
+        </div>
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-      
+      <div className='flex justify-start gap-20'>
+        <div>
+        <div className="py-3 flex justify-start flex-col gap-1 w-96">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-7/12 text-start"
+            >
+              Selling Price
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.selling_price}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="selling_price"
+              type="text"
+              required
+            />
+        </div>
+        <div className="py-3 flex justify-start flex-col gap-1 w-96">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-12/12 text-start"
+            >
+              Original Price
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.original_price}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="original_price"
+              type="text"
+              required
+            />
+        </div>
+        <div className="py-3 flex justify-start flex-col gap-1 w-96">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-12/12 text-start"
+            >
+              Quantity
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.qty}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="qty"
+              type="text"
+              required
+            />
+          </div>   
+          </div>
+        <div>
+          <div className="py-3 flex justify-start flex-col gap-1 w-96">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-12/12 text-start"
+            >
+              Brand
+            </label>
+            <input
+              onChange={handleInput}
+              value={productInput.brand}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="brand"
+              type="text"
+              required
+            />
+        </div>   
+        <div className="py-3 flex justify-start flex-col gap-1 w-96">
+            <label
+              for="slug"
+              class="m-2 text-lg font-medium uppercase text-gray-900 dark:text-gray-300 w-12/12 text-start"
+            >
+              Image
+            </label>
+            <input
+              onChange={handleImage}
+              className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
+              name="image"
+              type="file"
+              required
+            />
+          <div className="checkbox hidden">
+            <div className="popular">
+              <label>Popular</label>
+              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.popular} />
+            </div>
+            <div className="status">
+              <label>Popular</label>
+              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.status} />
+            </div>
+            <div className="featured">
+              <label>Popular</label>
+              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.featured} />
+            </div>
+            
+          </div>
+        </div>   
+        </div>
+      </div>
+     
       </TabPanel>
       <div className="py-3 items-center flex justify-end gap-4 w-7/12">
             <button
