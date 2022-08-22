@@ -3,7 +3,8 @@ import blacklogo from "../../assets/img/logo-black.png";
 import whitelogo from "../../assets/img/logo-white.png";
 import { ArrowIcon } from "../../assets/Icons/Icons";
 import DarkMode from "../DarkMode/DarkMode";
-
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 // brand logo
 export const BlackLogo = () => {
   return (
@@ -20,6 +21,19 @@ export const WhiteLogo = () => {
 // user menu dropdown
 export const UserMenu = (props) => {
   const [isOpen, setOpen] = useState(false);
+
+  let navigate = useNavigate();
+  const logoutSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post("/api/logout").then((res) => {
+      if (res.data.status === 200) {
+        localStorage.removeItem("auth_admin", res.data.token);
+        localStorage.removeItem("auth_admin_name", res.data.username);
+        navigate("/login", { replace: true });
+      }
+    });
+  };
 
   return (
     <div className="relative">
@@ -40,7 +54,7 @@ export const UserMenu = (props) => {
             <li className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200">
               Settings
             </li>
-            <li className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200">
+            <li onClick={logoutSubmit} className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200">
               Log Out
             </li>
           </ul>

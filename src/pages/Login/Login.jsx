@@ -61,7 +61,7 @@ const Login = () => {
         <div className="p-4 w-[46vh] mx-auto">
           <LoginHeader />
           <form onSubmit={loginSubmit} className="flex flex-col gap-4 pb-4">
-
+          <span className='text-center text-sm text-red-500'>{login.error_wrong}</span>
             <div className="py-3">
               <input
                 onChange={handleInput} value={login.email}

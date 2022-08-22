@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.css';
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import axios from 'axios'
 // pages
 import Home from './pages/Home/Home';
@@ -32,14 +32,13 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
         <Route path='/category' element={<Category/>}/>
         <Route path='/editcategory/:id' element={<EditCategory />} />
         <Route path='/viewcategory' element={<ViewCategory/>}/>
-
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/editproduct/:id' element={<EditProduct />} />
         <Route path='/viewproduct' element={<ViewProduct/>}/>
-        <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
       </Routes>
     </div>
