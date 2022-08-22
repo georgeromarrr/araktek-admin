@@ -37,7 +37,7 @@ function App() {
         <Route path='/viewcategory' element={<ViewCategory/>}/>
 
         <Route path='/addproduct' element={<AddProduct/>}/>
-        <Route path='/editproduct/:id' element={<EditProduct/>}/>
+        <Route path='/editproduct/:id' element={<EditProduct />} />
         <Route path='/viewproduct' element={<ViewProduct/>}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
