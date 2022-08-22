@@ -31,8 +31,13 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />}/>
+        {/* CHANGE TO THIS KAPAG FINAL NA */}
+        {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} />
+        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */}
+        {/* ETO YUNG PAPALITAN */}
+        <Route path='/' element={<Home/>}/>
         <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
+        {/* END */}
         <Route path='/category' element={<Category/>}/>
         <Route path='/editcategory/:id' element={<EditCategory />} />
         <Route path='/viewcategory' element={<ViewCategory/>}/>
