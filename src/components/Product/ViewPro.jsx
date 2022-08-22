@@ -159,7 +159,7 @@ else {
             </td>
             <td
               scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
             >
               <img src={`http://localhost:8000/${item.image}`} width='100px' height='100px' alt="item.name"  />
             </td>
@@ -169,7 +169,7 @@ else {
             >
               {item.status === 0 ? 'Active' : null}
             </th>
-            <div className="flex justify-center gap-4">
+            <div className="flex gap-1">
             <Link to={`/editproduct/${item.id}`}>
             <button
               type="button"
