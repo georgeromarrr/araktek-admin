@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.css';
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import axios from 'axios'
 // pages
 import Home from './pages/Home/Home';
@@ -31,15 +31,19 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />}/>
+        {/* CHANGE TO THIS KAPAG FINAL NA */}
+        {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} />
+        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */}
+        {/* ETO YUNG PAPALITAN */}
+        <Route path='/' element={<Home/>}/>
+        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
+        {/* END */}
         <Route path='/category' element={<Category/>}/>
         <Route path='/editcategory/:id' element={<EditCategory />} />
         <Route path='/viewcategory' element={<ViewCategory/>}/>
-
         <Route path='/addproduct' element={<AddProduct/>}/>
-        <Route path='/editproduct/:id' element={<EditProduct/>}/>
+        <Route path='/editproduct/:id' element={<EditProduct />} />
         <Route path='/viewproduct' element={<ViewProduct/>}/>
-        <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
       </Routes>
     </div>
