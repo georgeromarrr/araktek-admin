@@ -149,7 +149,13 @@ else {
               scope="row"
               className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
             >
-              {item.selling_price}
+              {item.name}
+            </td>
+            <td
+              scope="row"
+              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+            >
+              ₱{item.selling_price.toLocaleString()}
             </td>
             <td
               scope="row"
@@ -167,14 +173,14 @@ else {
             <Link to={`/editproduct/${item.id}`}>
             <button
               type="button"
-              className="border border-green-400 text-green-400 py-2 px-6 rounded-md hover:bg-green-400 hover:text-white"
+              className="border border-green-400 text-green-400 py-2 px-4 rounded-md hover:bg-green-400 hover:text-white"
             >
               Update
             </button>
             </Link>
             <button
               type="button"
-              className="border border-red-400 text-red-400 py-2 px-6 rounded-md hover:bg-red-400 hover:text-white"
+              className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
             >
               Delete
             </button>
@@ -252,10 +258,10 @@ else {
               <th scope="col" className="py-3 px-6 text-center w-28">
                 Id
               </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
+              <th scope="col" className="py-3 px-6 text-center w-32">
                 Category Name
               </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
+              <th scope="col" className="py-3 px-6 text-center w-28">
                 Brand
               </th>
               <th scope="col" className="py-3 px-6 text-center w-48">
@@ -266,6 +272,9 @@ else {
               </th>
               <th scope="col" className="py-3 px-6 text-center w-48">
                 Product Image
+              </th>
+              <th scope="col" className="py-3 px-6 text-center w-48">
+                Status
               </th>
               <th scope="col" className="py-3 px-6 text-center w-36">
                 Action
