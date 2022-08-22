@@ -392,6 +392,7 @@ if (loading) {
               required
             />
             <img src={`http://localhost:8000/${productInput.image}`} width="50px" />
+            
             {/* Hidden section toh */}
           <div className="checkbox hidden">
             <div className="popular">
