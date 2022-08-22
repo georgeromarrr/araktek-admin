@@ -391,6 +391,8 @@ if (loading) {
               type="file"
               required
             />
+            <img src={`http://localhost:8000/${productInput.image}`} width="50px" />
+            {/* Hidden section toh */}
           <div className="checkbox hidden">
             <div className="popular">
               <label>Popular</label>
@@ -416,7 +418,7 @@ if (loading) {
               type="submit"
               className="border w-4/12 bg-gray-100 text-black border-black py-2 px-12 rounded-md hover:bg-green-400 hover:border-black"
             >
-              ADD
+              Update
             </button>
           </div>
       </form>
