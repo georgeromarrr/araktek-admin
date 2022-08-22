@@ -164,7 +164,7 @@ const submitProduct = (e) => {
         <p className="text-3xl font-bold uppercase mb-10 dark:text-white">
           Add Product
         </p>
-        <Link to='/viewproducts'> 
+        <Link to='/viewproduct'> 
         <button
           type="button"
           className="border border-black text-black py-2 px-6 rounded-md hover:bg-green-400 hover:border-black"

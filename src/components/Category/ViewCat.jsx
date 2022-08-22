@@ -3,6 +3,7 @@ import { TableContainer, SectionTitle } from "./Table_Components";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert';
+
 const ViewCat = () => {
   const [perPage, setPerPage] = useState(5);
   const [initIndex, setInitIndex] = useState(0);
