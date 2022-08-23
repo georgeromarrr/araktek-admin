@@ -122,6 +122,7 @@ const ViewPro = () => {
     console.log("prd:" + productlist);
   }, []);
 
+<<<<<<< HEAD
 if (loading) {
     return <h4>Products are loading...</h4>
 }
@@ -171,6 +172,67 @@ else {
             </th>
             <div className="flex gap-1">
             <Link to={`/editproduct/${item.id}`}>
+=======
+  let viewproduct_HTMLTABLE = "";
+
+  const handleLoading = () => {
+    console.log(loading);
+  };
+
+  if (loading) {
+    return <h4>Products are loading...</h4>;
+  } else {
+    viewproduct_HTMLTABLE = productlist.map((item) => {
+      return (
+        <tr
+          key={item.id}
+          className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela"
+        >
+          <td className="py-4 px-6 text-center w-28">{item.id}</td>
+          <th
+            scope="row"
+            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
+          >
+            {item.category.name}
+          </th>
+
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            {item.brand}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            {item.name}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            ₱{item.selling_price.toLocaleString()}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
+          >
+            <img
+              src={`http://localhost:8000/${item.image}`}
+              width="50px"
+              height="50px"
+              alt="item.name"
+            />
+          </td>
+          <th
+            scope="row"
+            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
+          >
+            {item.status === 0 ? "Active" : null}
+          </th>
+          <div className="flex gap-1">
+>>>>>>> 6c722798a3ad944a4458a5ecb4946df470fe0898
             <button
               type="button"
               onClick={() => redirectTo(`/editproduct/${item.id}`)}
@@ -178,10 +240,22 @@ else {
             >
               Update
             </button>
+<<<<<<< HEAD
             </Link>
             </div>
           </tr>
         )
+=======
+            <button
+              type="button"
+              className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
+            >
+              Delete
+            </button>
+          </div>
+        </tr>
+      );
+>>>>>>> 6c722798a3ad944a4458a5ecb4946df470fe0898
     });
   }
 
