@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
   HomeIcon,
   CategoryIcon,
@@ -27,16 +27,19 @@ const Sidebar = ({ children }) => {
       <div className="w-1/6 mx-1 mb-1">
         <div className="py-8 px-6 h-full rounded-md border border-black bg-white dark:bg-neutral-900 dark:border-white dark:text-white ">
           <ul className="space-y-4 py-6 content-center">
-            <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-              <HomeIcon />
-              <span className="text-lg">HOME</span>
+            <li className="px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
+              <Link to="/" className="flex items-center gap-4">
+                <HomeIcon />
+                <span className="text-lg">HOME</span>
+              </Link>
             </li>
-            <Link to='/category'>
-            <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-              <CategoryIcon />
-              <span className="text-lg">CATEGORY</span>
+
+            <li className="px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
+              <Link to="/category" className="flex items-center gap-4">
+                <CategoryIcon />
+                <span className="text-lg">CATEGORY</span>
+              </Link>
             </li>
-            </Link>
 
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <PhotoIcon />
@@ -50,11 +53,11 @@ const Sidebar = ({ children }) => {
               <BrandIcon />
               <span className="text-lg">BRAND</span>
             </li>
-            <Link to='/addproduct'>
-            <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-              <ProductIcon />
-              <span className="text-lg">PRODUCT</span>
-            </li>
+            <Link to="/addproduct">
+              <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
+                <ProductIcon />
+                <span className="text-lg">PRODUCT</span>
+              </li>
             </Link>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <OrderIcon className="h-6 w-6" />
