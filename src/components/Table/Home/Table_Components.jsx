@@ -12,7 +12,7 @@ export const SectionTitle = () => {
 export const TableContainer = (props) => {
   return (
     <>
-      <tr className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela">
+      <tr className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600">
         <td className="py-4 px-6 text-center w-28">{props.id}</td>
         <th
           scope="row"

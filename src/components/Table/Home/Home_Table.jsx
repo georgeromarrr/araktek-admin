@@ -52,7 +52,7 @@ const Home_Table = () => {
     if (filterTable === "All") {
       return rootData.length;
     } else {
-      return rootData.filter(({ status }) => status === filterTable).length;
+      return rootData.filter((status) => status === filterTable).length;
     }
   };
 

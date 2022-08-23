@@ -9,7 +9,7 @@ const ViewPro = () => {
   const [initIndex, setInitIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(5);
   const [page, setPage] = useState(1);
-  const [filterTable, setfilterTable] = useState("Pending");
+  const [filterTable, setfilterTable] = useState("Active");
   const [nextBtnEnable, setNextBtnEnable] = useState(false);
   const [prevBtnEnable, setPrevBtnEnable] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -49,7 +49,9 @@ const ViewPro = () => {
     if (filterTable === "All") {
       return rootData;
     } else {
-      return rootData.filter(({ status }) => status === filterTable);
+      return rootData.filter(
+        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+      );
     }
   };
 
@@ -57,7 +59,9 @@ const ViewPro = () => {
     if (filterTable === "All") {
       return rootData.length;
     } else {
-      return rootData.filter(({ status }) => status === filterTable).length;
+      return rootData.filter(
+        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+      ).length;
     }
   };
 
@@ -103,11 +107,10 @@ const ViewPro = () => {
     }
   };
 
-  // console.log("First: " + initIndex);
-  // console.log("Last: " + lastIndex);
-  // console.log("Page: " + page);
-  // console.log("PerPage: " + perPage);
-  // console.log("Status: " + handleDataLength(productlist));
+  console.log("First: " + initIndex);
+  console.log("Last: " + lastIndex);
+  console.log("Page: " + page);
+  console.log("PerPage: " + perPage);
 
   //   API CALL
   useEffect(() => {
@@ -118,147 +121,88 @@ const ViewPro = () => {
       }
       setLoading(false);
     });
-
-    console.log("prd:" + productlist);
   }, []);
 
-<<<<<<< HEAD
-if (loading) {
-    return <h4>Products are loading...</h4>
-}
-else {
-    
-    viewproduct_HTMLTABLE =
-    productlist.map( (item) => {
-        return(
-            <tr key={item.id} className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela">
-            <td className="py-4 px-6 text-center w-28">{item.id}</td>
-            <th
-              scope="row"
-              className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
-            >
-              {item.category.name}
-            </th>
-    
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              {item.brand}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              {item.name}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              ₱{item.selling_price.toLocaleString()}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
-            >
-              <img src={`http://localhost:8000/${item.image}`} width='100px' height='100px' alt="item.name"  />
-            </td>
-            <th
-              scope="row"
-              className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
-            >
-              {item.status === 0 ? 'Active' : 'Inactive'}
-            </th>
-            <div className="flex gap-1">
-            <Link to={`/editproduct/${item.id}`}>
-=======
   let viewproduct_HTMLTABLE = "";
 
-  const handleLoading = () => {
-    console.log(loading);
-  };
+  // if (loading) {
+  //   return <h4>Products are loading...</h4>;
+  // } else {
+  //   viewproduct_HTMLTABLE = productlist.map((item) => {
+  //     return (
+  //       <tr
+  //         key={item.id}
+  //         className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela"
+  //       >
+  //         <td className="py-4 px-6 text-center w-28">{item.id}</td>
+  //         <th
+  //           scope="row"
+  //           className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
+  //         >
+  //           {item.category.name}
+  //         </th>
 
-  if (loading) {
-    return <h4>Products are loading...</h4>;
-  } else {
-    viewproduct_HTMLTABLE = productlist.map((item) => {
-      return (
-        <tr
-          key={item.id}
-          className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela"
-        >
-          <td className="py-4 px-6 text-center w-28">{item.id}</td>
-          <th
-            scope="row"
-            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
-          >
-            {item.category.name}
-          </th>
+  //         <td
+  //           scope="row"
+  //           className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+  //         >
+  //           {item.brand}
+  //         </td>
+  //         <td
+  //           scope="row"
+  //           className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+  //         >
+  //           {item.name}
+  //         </td>
+  //         <td
+  //           scope="row"
+  //           className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+  //         >
+  //           ₱{item.selling_price.toLocaleString()}
+  //         </td>
+  //         <td
+  //           scope="row"
+  //           className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
+  //         >
+  //           <img
+  //             src={`http://localhost:8000/${item.image}`}
+  //             width="100px"
+  //             height="100px"
+  //             alt="item.name"
+  //           />
+  //         </td>
+  //         <th
+  //           scope="row"
+  //           className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
+  //         >
+  //           {item.status === 0 ? "Active" : "Inactive"}
+  //         </th>
+  //         <div className="flex gap-1">
+  //           <button
+  //             type="button"
+  //             onClick={() => redirectTo(`/editproduct/${item.id}`)}
+  //             className="border border-green-400 text-green-400 py-2 px-4 rounded-md hover:bg-green-400 hover:text-white"
+  //           >
+  //             Update
+  //           </button>
+  //           <button
+  //             type="button"
+  //             className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
+  //           >
+  //             Delete
+  //           </button>
+  //         </div>
+  //       </tr>
+  //     );
+  //   });
+  // }
 
-          <td
-            scope="row"
-            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-          >
-            {item.brand}
-          </td>
-          <td
-            scope="row"
-            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-          >
-            {item.name}
-          </td>
-          <td
-            scope="row"
-            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-          >
-            ₱{item.selling_price.toLocaleString()}
-          </td>
-          <td
-            scope="row"
-            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
-          >
-            <img
-              src={`http://localhost:8000/${item.image}`}
-              width="50px"
-              height="50px"
-              alt="item.name"
-            />
-          </td>
-          <th
-            scope="row"
-            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
-          >
-            {item.status === 0 ? "Active" : null}
-          </th>
-          <div className="flex gap-1">
->>>>>>> 6c722798a3ad944a4458a5ecb4946df470fe0898
-            <button
-              type="button"
-              onClick={() => redirectTo(`/editproduct/${item.id}`)}
-              className="border border-green-400 text-green-400 py-2 px-4 rounded-md hover:bg-green-400 hover:text-white"
-            >
-              Update
-            </button>
-<<<<<<< HEAD
-            </Link>
-            </div>
-          </tr>
-        )
-=======
-            <button
-              type="button"
-              className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
-            >
-              Delete
-            </button>
-          </div>
-        </tr>
-      );
->>>>>>> 6c722798a3ad944a4458a5ecb4946df470fe0898
-    });
-  }
-
+  console.log(
+    "Status: " +
+      productlist.filter(
+        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+      )
+  );
   return (
     <div className="mt-14">
       <div className="flex justify-between">
@@ -294,17 +238,11 @@ else {
             onClick={handleSelectedFilter}
             className="h-9 mx-2 text-sm font-medium self-center text-black border border-black focus:border-black rounded-md outline outline-0 ring-0 focus:ring-white focus:ring-1 dark:bg-neutral-900 dark:text-white dark:border-white"
           >
-            <option value={"Pending"} className="text-yellow-600 uppercase">
-              Pending
-            </option>
             <option value={"Active"} className="text-green-600 uppercase">
               Active
             </option>
-            <option value={"Disabled"} className="text-red-600 uppercase">
-              Disabled
-            </option>
-            <option value={"Declined"} className="text-neutral-400 uppercase">
-              Declined
+            <option value={"Inactive"} className="text-red-600 uppercase">
+              Inactive
             </option>
             <option
               value={"All"}
@@ -315,29 +253,31 @@ else {
           </select>
         </div>
       </div>
-      <div className="overflow-x-auto shadow-md sm:rounded-lg  rounded-md w-[80vw] h-[38.5vh] outline outline-1 relative">
+      <div className="overflow-x-auto shadow-md sm:rounded-lg  rounded-md w-[80vw] h-[51.2vh] outline outline-1 relative">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
           <thead className="text-xs text-white uppercase bg-neutral-700 dark:bg-neutral-900 dark:text-gray-200 sticky top-0 z-20">
             <tr>
-              <th scope="col" className="py-3 px-6 text-center w-28">
+              <th scope="col" className="py-3 px-6 text-center w-14">
                 Id
               </th>
-              <th scope="col" className="py-3 px-6 text-center w-32">
+              <th scope="col" className="py-3 px-6 text-center w-28">
+                Product Image
+              </th>
+              <th scope="col" className="py-3 px-6 text-center w-72">
+                Product Name
+              </th>
+              <th scope="col" className="py-3 px-6 text-center w-36">
                 Category Name
               </th>
               <th scope="col" className="py-3 px-6 text-center w-28">
                 Brand
               </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
-                Product Name
-              </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
+
+              <th scope="col" className="py-3 px-6 text-center w-28">
                 Selling Price
               </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
-                Product Image
-              </th>
-              <th scope="col" className="py-3 px-6 text-center w-48">
+
+              <th scope="col" className="py-3 px-6 text-center w-28">
                 Status
               </th>
               <th scope="col" className="py-3 px-6 text-center w-36">
@@ -345,7 +285,22 @@ else {
               </th>
             </tr>
           </thead>
-          <tbody>{viewproduct_HTMLTABLE}</tbody>
+          <tbody>
+            {handleSetFilter(productlist)
+              .slice(initIndex, lastIndex)
+              .map((item) => (
+                <TableContainer
+                  key={item.id}
+                  id={item.id}
+                  category_name={item.category.name}
+                  brand={item.brand}
+                  selling_price={item.selling_price.toLocaleString()}
+                  name={item.name}
+                  image={item.image}
+                  status={item.status}
+                />
+              ))}
+          </tbody>
         </table>
       </div>
 
