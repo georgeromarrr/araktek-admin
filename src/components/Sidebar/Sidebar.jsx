@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HomeIcon,
   CategoryIcon,
@@ -18,6 +18,7 @@ import {
 
 const Sidebar = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
+  const redirectTo = useNavigate();
   // const useDropdown = useClickOutside(() => {
   //   setOpen(false);
   // });
@@ -27,18 +28,24 @@ const Sidebar = ({ children }) => {
       <div className="w-1/6 mx-1 mb-1">
         <div className="py-8 px-6 h-full rounded-md border border-black bg-white dark:bg-neutral-900 dark:border-white dark:text-white ">
           <ul className="space-y-4 py-6 content-center">
-            <li className="px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-              <Link to="/" className="flex items-center gap-4">
-                <HomeIcon />
-                <span className="text-lg">HOME</span>
-              </Link>
+            <li
+              className="flex items-center gap-4 px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700"
+              onClick={() => {
+                redirectTo("/");
+              }}
+            >
+              <HomeIcon />
+              <span className="text-lg">HOME</span>
             </li>
 
-            <li className="px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-              <Link to="/category" className="flex items-center gap-4">
-                <CategoryIcon />
-                <span className="text-lg">CATEGORY</span>
-              </Link>
+            <li
+              className="flex items-center gap-4 px-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700"
+              onClick={() => {
+                redirectTo("/category");
+              }}
+            >
+              <CategoryIcon />
+              <span className="text-lg">CATEGORY</span>
             </li>
 
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
@@ -53,22 +60,29 @@ const Sidebar = ({ children }) => {
               <BrandIcon />
               <span className="text-lg">BRAND</span>
             </li>
-            <Link to="/addproduct">
-              <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
-                <ProductIcon />
-                <span className="text-lg">PRODUCT</span>
-              </li>
-            </Link>
+            <li
+              className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700"
+              onClick={() => {
+                redirectTo("/viewproduct");
+              }}
+            >
+              <ProductIcon />
+              <span className="text-lg">PRODUCT</span>
+            </li>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <OrderIcon className="h-6 w-6" />
               <span className="text-lg">ORDER</span>
             </li>
-            <Link to='/viewinventory'>
-            <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
+
+            <li
+              className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700"
+              onClick={() => {
+                redirectTo("/viewinventory");
+              }}
+            >
               <InventoryIcon />
               <span className="text-lg">INVENTORY</span>
             </li>
-            </Link>
             <li className="flex items-center px-4 gap-4 cursor-pointer hover:bg-neutral-200 rounded-lg p-2 dark:hover:bg-neutral-700">
               <SalesIcon className="h-6 w-6" />
               <span className="text-lg">SALES</span>
