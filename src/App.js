@@ -9,9 +9,9 @@ import Register from './pages/Register/Register';
 import Category from './pages/Category/Category';
 import EditCategory from './pages/Category/EditCategory'
 import ViewCategory from './pages/Category/ViewCategory'
-import AddProduct from './pages/Product/Product';
+import AddProduct from './pages/Product/AddProduct';
 import EditProduct from './pages/Product/EditProduct';
-import ViewProduct from './pages/Product/ViewProduct';
+import Product from './pages/Product/Product';
 import ViewInventory from './pages/Inventory/ViewInventory';
 
 // API
@@ -44,7 +44,7 @@ function App() {
         <Route path='/viewcategory' element={<ViewCategory/>}/>
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/editproduct/:id' element={<EditProduct />} />
-        <Route path='/viewproduct' element={<ViewProduct/>}/>
+        <Route path='/viewproduct' element={<Product/>}/>
         <Route path='/viewinventory' element={<ViewInventory/>}/>
         <Route path="/register" element={<Register />}/>
       </Routes>

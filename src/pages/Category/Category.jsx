@@ -15,7 +15,7 @@ const Category = () => {
     <div className="dark:bg-neutral-900 bg-white h-screen">
       <Navbar />
       <Sidebar>
-        <AddCat/>
+        <ViewCat/>
       </Sidebar>
     </div>
   );
