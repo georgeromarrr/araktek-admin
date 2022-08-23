@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { TableContainer, SectionTitle } from "./Table_Components";
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import swal from 'sweetalert';
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import swal from "sweetalert";
 
 const ViewPro = () => {
   const [perPage, setPerPage] = useState(5);
@@ -14,6 +14,7 @@ const ViewPro = () => {
   const [prevBtnEnable, setPrevBtnEnable] = useState(true);
   const [loading, setLoading] = useState(true);
   const [productlist, setProductlist] = useState([]);
+  const redirectTo = useNavigate();
 
   const handleSelectValue = (e) => {
     setPerPage(parseInt(e.target.value));
@@ -25,7 +26,7 @@ const ViewPro = () => {
   };
 
   useEffect(() => {
-    console.log("Filter Changed to: " + filterTable);
+    // console.log("Filter Changed to: " + filterTable);
     setPerPage(perPage);
     setInitIndex(0);
     setLastIndex(perPage);
@@ -35,7 +36,7 @@ const ViewPro = () => {
   }, [filterTable]);
 
   useEffect(() => {
-    console.log("perPage Changed to: " + perPage);
+    // console.log("perPage Changed to: " + perPage);
     setPerPage(perPage);
     setInitIndex(0);
     setLastIndex(perPage);
@@ -102,112 +103,116 @@ const ViewPro = () => {
     }
   };
 
-  console.log("First: " + initIndex);
-  console.log("Last: " + lastIndex);
-  console.log("Page: " + page);
-  console.log("PerPage: " + perPage);
-  console.log("Status: " + handleDataLength(productlist));
+  // console.log("First: " + initIndex);
+  // console.log("Last: " + lastIndex);
+  // console.log("Page: " + page);
+  // console.log("PerPage: " + perPage);
+  // console.log("Status: " + handleDataLength(productlist));
 
-//   API CALL
-useEffect(() => {
-    axios.get(`api/view-product`).then(res => {
-        console.log(res.data.product)
-        if (res.data.status === 200) {
-
-            setProductlist(res.data.product);
-        }
-        setLoading(false);
-       
+  //   API CALL
+  useEffect(() => {
+    axios.get(`api/view-product`).then((res) => {
+      // console.log(res.data.product);
+      if (res.data.status === 200) {
+        setProductlist(res.data.product);
+      }
+      setLoading(false);
     });
-}, []);
 
-var viewproduct_HTMLTABLE = "";
+    console.log("prd:" + productlist);
+  }, []);
 
-if (loading) {
-    return <h4>Products are loading...</h4>
-}
-else {
-    viewproduct_HTMLTABLE =
-    productlist.map( (item) => {
-        return(
-            <tr key={item.id} className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela">
-            <td className="py-4 px-6 text-center w-28">{item.id}</td>
-            <th
-              scope="row"
-              className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
-            >
-              {item.category.name}
-            </th>
-    
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              {item.brand}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              {item.name}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
-            >
-              ₱{item.selling_price.toLocaleString()}
-            </td>
-            <td
-              scope="row"
-              className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
-            >
-              <img src={`http://localhost:8000/${item.image}`} width='100px' height='100px' alt="item.name"  />
-            </td>
-            <th
-              scope="row"
-              className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
-            >
-              {item.status === 0 ? 'Active' : null}
-            </th>
-            <div className="flex gap-1">
-            <Link to={`/editproduct/${item.id}`}>
+  let viewproduct_HTMLTABLE = "";
+
+  const handleLoading = () => {
+    console.log(loading);
+  };
+
+  if (loading) {
+    return <h4>Products are loading...</h4>;
+  } else {
+    viewproduct_HTMLTABLE = productlist.map((item) => {
+      return (
+        <tr
+          key={item.id}
+          className="bg-white border-b border-gray-300 dark:bg-neutral-700 dark:border-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 rela"
+        >
+          <td className="py-4 px-6 text-center w-28">{item.id}</td>
+          <th
+            scope="row"
+            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white w-96 text-ellipsis overflow-hidden text-center"
+          >
+            {item.category.name}
+          </th>
+
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            {item.brand}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            {item.name}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white"
+          >
+            ₱{item.selling_price.toLocaleString()}
+          </td>
+          <td
+            scope="row"
+            className="py-4 px-6 text-center text-gray-900 whitespace-nowrap text-ellipsis overflow-hidden w-48 dark:text-white flex justify-center"
+          >
+            <img
+              src={`http://localhost:8000/${item.image}`}
+              width="50px"
+              height="50px"
+              alt="item.name"
+            />
+          </td>
+          <th
+            scope="row"
+            className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
+          >
+            {item.status === 0 ? "Active" : null}
+          </th>
+          <div className="flex gap-1">
             <button
               type="button"
+              onClick={() => redirectTo(`/editproduct/${item.id}`)}
               className="border border-green-400 text-green-400 py-2 px-4 rounded-md hover:bg-green-400 hover:text-white"
             >
               Update
             </button>
-            </Link>
             <button
               type="button"
               className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
             >
               Delete
             </button>
-            </div>
-          </tr>
-        )
+          </div>
+        </tr>
+      );
     });
-}
-
-
-
-
+  }
 
   return (
     <div className="mt-14">
-    <div className="flex justify-between">
+      <div className="flex justify-between">
         <SectionTitle />
-        <Link to='/addproduct'> 
-        <button
-          type="button"
-          className="border border-black text-black py-2 px-6 rounded-md hover:bg-green-400 hover:border-black"
-        >
-          Add Product
-        </button>
-          </Link>
-    </div>
-      
+        <Link to="/addproduct">
+          <button
+            type="button"
+            className="border border-black text-black py-2 px-6 rounded-md hover:bg-green-400 hover:border-black"
+          >
+            Add Product
+          </button>
+        </Link>
+      </div>
 
       <div className="flex justify-between m-2">
         <div>
@@ -281,9 +286,7 @@ else {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {viewproduct_HTMLTABLE}
-          </tbody>
+          <tbody>{viewproduct_HTMLTABLE}</tbody>
         </table>
       </div>
 
