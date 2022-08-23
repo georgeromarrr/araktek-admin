@@ -127,6 +127,7 @@ if (loading) {
     return <h4>Products are loading...</h4>
 }
 else {
+    
     viewproduct_HTMLTABLE =
     productlist.map( (item) => {
         return(
@@ -167,7 +168,7 @@ else {
               scope="row"
               className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-48 text-center"
             >
-              {item.status === 0 ? 'Active' : null}
+              {item.status === 0 ? 'Active' : 'Inactive'}
             </th>
             <div className="flex gap-1">
             <Link to={`/editproduct/${item.id}`}>
@@ -178,12 +179,6 @@ else {
               Update
             </button>
             </Link>
-            <button
-              type="button"
-              className="border border-red-400 text-red-400 py-2 px-4 rounded-md hover:bg-red-400 hover:text-white"
-            >
-              Delete
-            </button>
             </div>
           </tr>
         )
