@@ -48,11 +48,15 @@ axios.interceptors.response.use(function(response) {
 }, function(error) {
   if (error.response.status === 403) {
     swal("Forbidden", error.response.data.message, "warning");
-    navigate('/403')
+    localStorage.removeItem('auth_admin')
+    localStorage.removeItem('auth_admin_name')
+    navigate('/login')
   }
   else if (error.response.status === 404) {
     swal("404 Error", "Page Not Found", "warning");
-    navigate('/404')
+    localStorage.removeItem('auth_admin')
+    localStorage.removeItem('auth_admin_name')
+    navigate('/login')
   }
   return Promise.reject(error)
 
