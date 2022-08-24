@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { TableContainer, SectionTitle } from "./Table_Components";
+import {
+  TableContainer,
+  SectionTitle,
+  LoadingSpinner,
+} from "./Table_Components";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
@@ -285,22 +289,26 @@ const ViewPro = () => {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {handleSetFilter(productlist)
-              .slice(initIndex, lastIndex)
-              .map((item) => (
-                <TableContainer
-                  key={item.id}
-                  id={item.id}
-                  category_name={item.category.name}
-                  brand={item.brand}
-                  selling_price={item.selling_price.toLocaleString()}
-                  name={item.name}
-                  image={item.image}
-                  status={item.status}
-                />
-              ))}
-          </tbody>
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <tbody>
+              {handleSetFilter(productlist)
+                .slice(initIndex, lastIndex)
+                .map((item) => (
+                  <TableContainer
+                    key={item.id}
+                    id={item.id}
+                    category_name={item.category.name}
+                    brand={item.brand}
+                    selling_price={item.selling_price.toLocaleString()}
+                    name={item.name}
+                    image={item.image}
+                    status={item.status}
+                  />
+                ))}
+            </tbody>
+          )}
         </table>
       </div>
 
