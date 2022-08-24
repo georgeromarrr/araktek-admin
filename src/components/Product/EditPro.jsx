@@ -65,10 +65,6 @@ const [productInput, setProduct] = useState({
     original_price: '',
     qty: '',
     brand: '',
-    featured: '',
-    popular: '',
-    status: '',
-
 });
 
 const [picture, setPicture] = useState([]);
@@ -87,7 +83,12 @@ const handleImage = (e) => {
     setPicture({image: e.target.files[0]});
 }
 
+const [allcheckbox, setCheckboxes] = useState([]);
 
+const handleCheckbox = (e) => {
+  e.persist();
+  setCheckboxes({...allcheckbox, [e.target.name]: e.target.checked});
+}
 
 useEffect(() => {
     axios.get(`/api/all-category`).then(res => {
@@ -100,6 +101,7 @@ useEffect(() => {
     axios.get(`/api/edit-product/${id}`).then(res => {
         if (res.data.status === 200) {
             setProduct(res.data.product)
+            setCheckboxes(res.data.product)
         }
         else if (res.data.status === 404) {
             swal("Error", res.data.message, "error")
@@ -129,13 +131,14 @@ const updateProduct = (e) => {
     formData.append('original_price', productInput.original_price)
     formData.append('qty', productInput.qty)
     formData.append('brand', productInput.brand)
-    formData.append('featured', productInput.featured)
-    formData.append('popular', productInput.popular)
-    formData.append('status', productInput.status)
+    formData.append('featured', allcheckbox.featured ? '1' : '0')
+    formData.append('popular', allcheckbox.popular ? '1' : '0')
+    formData.append('status', allcheckbox.status ? '1' : '0')
 
     axios.post(`/api/update-product/${id}`, formData).then(res => {
         if (res.data.status === 200) {
             swal("Success", res.data.message, "success")
+            console.log(allcheckbox)
             setError([])
         }
         else if (res.data.status === 422) {
@@ -389,23 +392,22 @@ if (loading) {
               className="border text-black bg-inherit border-black rounded-sm bg-opacity-20 focus:ring-0 focus:border-black grow"
               name="image"
               type="file"
-              required
             />
             <img src={`http://localhost:8000/${productInput.image}`} width="50px" />
             
             {/* Hidden section toh */}
-          <div className="checkbox hidden">
+          <div className="checkbox">
             <div className="popular">
               <label>Popular</label>
-              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.popular} />
-            </div>
-            <div className="status">
-              <label>Popular</label>
-              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.status} />
+              <input type="checkbox" name="popular" id="" onChange={handleCheckbox} defaultChecked={allcheckbox.popular === 1 ? true : false} />
             </div>
             <div className="featured">
-              <label>Popular</label>
-              <input type="checkbox" name="popular" id="" onChange={handleInput} value={productInput.featured} />
+              <label>Featured</label>
+              <input type="checkbox" name="featured" id="" onChange={handleCheckbox} defaultChecked={allcheckbox.featured === 1 ? true : false} />
+            </div>
+            <div className="status">
+              <label>Status</label>
+              <input type="checkbox" name="status" id="" onChange={handleCheckbox} defaultChecked={allcheckbox.status === 1 ? true : false} />
             </div>
             
           </div>

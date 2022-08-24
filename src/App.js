@@ -15,7 +15,7 @@ import Product from './pages/Product/Product';
 import ViewInventory from './pages/Inventory/ViewInventory';
 import AdminPrivateRoute from './AdminPrivateRoute'
 // API
-axios.defaults.baseURL ="https://obscure-bayou-47416.herokuapp.com/";
+axios.defaults.baseURL ="http://localhost:8000/";
 axios.defaults.headers.post['Content-Type']='application/json';
 axios.defaults.headers.post['Accept']='application/json';
 

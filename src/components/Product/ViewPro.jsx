@@ -54,7 +54,7 @@ const ViewPro = () => {
       return rootData;
     } else {
       return rootData.filter(
-        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+        ({ status }) => status === (filterTable === "Active" ? 1 : 0)
       );
     }
   };
@@ -64,7 +64,7 @@ const ViewPro = () => {
       return rootData.length;
     } else {
       return rootData.filter(
-        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+        ({ status }) => status === (filterTable === "Active" ? 1 : 0)
       ).length;
     }
   };
@@ -204,7 +204,7 @@ const ViewPro = () => {
   console.log(
     "Status: " +
       productlist.filter(
-        ({ status }) => status === (filterTable === "Active" ? 0 : 1)
+        ({ status }) => status === (filterTable === "Active" ? 1 : 0)
       )
   );
   return (

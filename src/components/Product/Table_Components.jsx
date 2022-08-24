@@ -83,7 +83,7 @@ export const TableContainer = (props) => {
           scope="row"
           className="py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white text-ellipsis overflow-hidden w-28 text-center"
         >
-          {props.status === 0 ? "Active" : "Inactive"}
+          {props.status === 1 ? "Active" : "Inactive"}
         </td>
         <td
           scope="row"
