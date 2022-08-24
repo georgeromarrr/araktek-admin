@@ -8,7 +8,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Category from './pages/Category/Category';
 import EditCategory from './pages/Category/EditCategory'
-import ViewCategory from './pages/Category/ViewCategory'
+import AddCategory from './pages/Category/AddCategory'
 import AddProduct from './pages/Product/AddProduct';
 import EditProduct from './pages/Product/EditProduct';
 import Product from './pages/Product/Product';
@@ -38,7 +38,7 @@ function App() {
           {/* END */}
           <Route path='/category' element={<Category/>}/>
           <Route path='/editcategory/:id' element={<EditCategory />} />
-          <Route path='/viewcategory' element={<ViewCategory/>}/>
+          <Route path='/addcategory' element={<AddCategory/>}/>
           <Route path='/addproduct' element={<AddProduct/>}/>
           <Route path='/editproduct/:id' element={<EditProduct />} />
           <Route path='/viewproduct' element={<Product/>}/>
