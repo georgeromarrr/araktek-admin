@@ -32,13 +32,13 @@ function App() {
   return (
     <div>
       <Routes>
-        {/* <Route element={<AdminPrivateRoute />} > */}
+        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
+        <Route element={<AdminPrivateRoute />} >
         { /* CHANGE TO THIS KAPAG FINAL NA */}
-          {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} />
-          <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */}
+          {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} /> */}  
           {/* ETO YUNG PAPALITAN */}
           <Route path='/' element={<Home/>}/>
-          <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
+          {/* <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */} */}
           {/* END */}
           <Route path='/category' element={<Category/>}/>
           <Route path='/editcategory/:id' element={<EditCategory />} />
@@ -48,7 +48,7 @@ function App() {
           <Route path='/viewproduct' element={<Product/>}/>
           <Route path='/viewinventory' element={<ViewInventory/>}/>
           <Route path="/register" element={<Register />}/>
-        {/* </Route> */}
+        </Route>
       </Routes>
     </div>
   );

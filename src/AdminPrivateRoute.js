@@ -38,7 +38,7 @@ axios.interceptors.response.use(undefined, function axiosRetryInterceptors(err) 
 
   if(err.response.status === 401) {
     swal("Unauthorized",err.response.data.message,"warning");
-    navigate('/');
+    navigate('/login');
   }
   return Promise.reject(err);
 });
