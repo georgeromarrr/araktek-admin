@@ -13,9 +13,9 @@ import AddProduct from './pages/Product/AddProduct';
 import EditProduct from './pages/Product/EditProduct';
 import Product from './pages/Product/Product';
 import ViewInventory from './pages/Inventory/ViewInventory';
-
+import AdminPrivateRoute from './AdminPrivateRoute'
 // API
-axios.defaults.baseURL ="http://127.0.0.1:8000/";
+axios.defaults.baseURL ="https://obscure-bayou-47416.herokuapp.com/";
 axios.defaults.headers.post['Content-Type']='application/json';
 axios.defaults.headers.post['Accept']='application/json';
 
@@ -32,21 +32,23 @@ function App() {
   return (
     <div>
       <Routes>
-        {/* CHANGE TO THIS KAPAG FINAL NA */}
-        {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} />
-        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */}
-        {/* ETO YUNG PAPALITAN */}
-        <Route path='/' element={<Home/>}/>
-        <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
-        {/* END */}
-        <Route path='/category' element={<Category/>}/>
-        <Route path='/editcategory/:id' element={<EditCategory />} />
-        <Route path='/viewcategory' element={<ViewCategory/>}/>
-        <Route path='/addproduct' element={<AddProduct/>}/>
-        <Route path='/editproduct/:id' element={<EditProduct />} />
-        <Route path='/viewproduct' element={<Product/>}/>
-        <Route path='/viewinventory' element={<ViewInventory/>}/>
-        <Route path="/register" element={<Register />}/>
+        {/* <Route element={<AdminPrivateRoute />} > */}
+        { /* CHANGE TO THIS KAPAG FINAL NA */}
+          {/* <Route path="/" element={!localStorage.getItem('auth_admin') ? <Navigate to='/login'/> : <Home/>} />
+          <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} /> */}
+          {/* ETO YUNG PAPALITAN */}
+          <Route path='/' element={<Home/>}/>
+          <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
+          {/* END */}
+          <Route path='/category' element={<Category/>}/>
+          <Route path='/editcategory/:id' element={<EditCategory />} />
+          <Route path='/viewcategory' element={<ViewCategory/>}/>
+          <Route path='/addproduct' element={<AddProduct/>}/>
+          <Route path='/editproduct/:id' element={<EditProduct />} />
+          <Route path='/viewproduct' element={<Product/>}/>
+          <Route path='/viewinventory' element={<ViewInventory/>}/>
+          <Route path="/register" element={<Register />}/>
+        {/* </Route> */}
       </Routes>
     </div>
   );

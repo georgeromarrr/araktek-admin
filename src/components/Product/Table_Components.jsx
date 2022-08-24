@@ -24,7 +24,7 @@ export const TableContainer = (props) => {
           className="py-4 px-6 text-gray-900 w-28 dark:text-white flex m-auto whitespace-nowrap"
         >
           <img
-            src={`http://localhost:8000/${props.image}`}
+            src={`https://obscure-bayou-47416.herokuapp.com/${props.image}`}
             alt={props.name}
             className="w-14 h-14 whitespace-nowrap text-ellipsis overflow-hidden"
           />
