@@ -38,6 +38,8 @@ axios.interceptors.response.use(undefined, function axiosRetryInterceptors(err) 
 
   if(err.response.status === 401) {
     swal("Unauthorized",err.response.data.message,"warning");
+    localStorage.removeItem('auth_admin')
+    localStorage.removeItem('auth_admin_name')
     navigate('/login');
   }
   return Promise.reject(err);
