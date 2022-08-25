@@ -33,8 +33,8 @@ function App() {
     <div>
       <Routes>
           <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
-        <Route element={<AdminPrivateRoute />} >
           <Route path='/' element={<Home/>}/>
+        <Route element={<AdminPrivateRoute />} >
           {/* END */}
           <Route path='/category' element={<Category/>}/>
           <Route path='/editcategory/:id' element={<EditCategory />} />
