@@ -54,7 +54,10 @@ export const UserMenu = (props) => {
             <li className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200">
               Settings
             </li>
-            <li onClick={logoutSubmit} className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200">
+            <li
+              onClick={logoutSubmit}
+              className="font-semibold cursor-pointer hover:bg-neutral-200 hover:text-neutral-700 p-2 rounded-sm dark:hover:bg-neutral-700 dark:hover:text-neutral-200"
+            >
               Log Out
             </li>
           </ul>

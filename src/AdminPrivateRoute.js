@@ -9,12 +9,10 @@ import swal from 'sweetalert';
 const AdminPrivateRoute = () => {
 
   const navigate = useNavigate();
-
   const [Authenticated, setAuthenticated] = useState(false);
   const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     axios.get(`/api/checkingAuthenticated`).then(res => {
       
       if(res.status === 200) {
@@ -34,21 +32,27 @@ const AdminPrivateRoute = () => {
 
 }, []);
 
-axios.interceptors.response.use(undefined, function axiosRetryInterceptors(err) {
+// axios.interceptors.response.use(undefined, function axiosRetryInterceptors(err) {
 
-  if(err.response.status === 401) {
-    swal("Unauthorized",err.response.data.message,"warning");
-    localStorage.removeItem('auth_admin')
-    localStorage.removeItem('auth_admin_name')
-    navigate('/login');
-  }
-  return Promise.reject(err);
-});
+//   if(err.response.status === 401) {
+//     swal("Unauthorized",err.response.data.message,"warning");
+//     localStorage.removeItem('auth_admin')
+//     localStorage.removeItem('auth_admin_name')
+//     navigate('/login');
+//   }
+//   return Promise.reject(err);
+// });
 
 axios.interceptors.response.use(function(response) {
   return response;
 }, function(error) {
-  if (error.response.status === 403) {
+  if (error.response.status === 401) {
+    swal("Unauthorized", error.response.data.message, "warning");
+    localStorage.removeItem('auth_admin')
+    localStorage.removeItem('auth_admin_name')
+    navigate('/login')
+  }
+  else if (error.response.status === 403) {
     swal("Forbidden", error.response.data.message, "warning");
     localStorage.removeItem('auth_admin')
     localStorage.removeItem('auth_admin_name')
