@@ -13,7 +13,7 @@ const ViewPro = () => {
   const [initIndex, setInitIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(5);
   const [page, setPage] = useState(1);
-  const [filterTable, setfilterTable] = useState("Active");
+  const [filterTable, setfilterTable] = useState("All");
   const [nextBtnEnable, setNextBtnEnable] = useState(false);
   const [prevBtnEnable, setPrevBtnEnable] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -242,17 +242,17 @@ const ViewPro = () => {
             onClick={handleSelectedFilter}
             className="h-9 mx-2 text-sm font-medium self-center text-black border border-black focus:border-black rounded-md outline outline-0 ring-0 focus:ring-white focus:ring-1 dark:bg-neutral-900 dark:text-white dark:border-white"
           >
-            <option value={"Active"} className="text-green-600 uppercase">
-              Active
-            </option>
-            <option value={"Inactive"} className="text-red-600 uppercase">
-              Inactive
-            </option>
             <option
               value={"All"}
               className="text-black uppercase dark:text-white"
             >
               All
+            </option>
+            <option value={"Active"} className="text-green-600 uppercase">
+              Active
+            </option>
+            <option value={"Inactive"} className="text-red-600 uppercase">
+              Inactive
             </option>
           </select>
         </div>
