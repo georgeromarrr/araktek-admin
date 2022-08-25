@@ -15,7 +15,7 @@ import Product from './pages/Product/Product';
 import ViewInventory from './pages/Inventory/ViewInventory';
 import AdminPrivateRoute from './AdminPrivateRoute'
 // API
-axios.defaults.baseURL ="http://localhost:8000/";
+axios.defaults.baseURL ="https://obscure-bayou-47416.herokuapp.com/";
 axios.defaults.headers.post['Content-Type']='application/json';
 axios.defaults.headers.post['Accept']='application/json';
 
@@ -33,8 +33,8 @@ function App() {
     <div>
       <Routes>
           <Route path="/login" element={localStorage.getItem('auth_admin') ? <Navigate to='/'/> : <Login/>} />
-        <Route element={<AdminPrivateRoute />} >
           <Route path='/' element={<Home/>}/>
+        <Route element={<AdminPrivateRoute />} >
           {/* END */}
           <Route path='/category' element={<Category/>}/>
           <Route path='/editcategory/:id' element={<EditCategory />} />
